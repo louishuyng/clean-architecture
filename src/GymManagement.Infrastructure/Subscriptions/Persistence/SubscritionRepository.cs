@@ -13,4 +13,11 @@ public class SubscriptionsRepository : ISubscriptionsRepository
 
     return Task.CompletedTask;
   }
+
+  public Task<Subscription?> GetByIdAsync(Guid id)
+  {
+    var subscription = _subscriptions.FirstOrDefault(s => s.Id == id);
+
+    return Task.FromResult(subscription);
+  }
 }
